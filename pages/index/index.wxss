@@ -1,0 +1,21 @@
+.news_tiezi{
+  height:52rpx;
+  width:100%;
+  font-size:24rpx;
+  display:block;
+  background:#e5f4ff;
+  color:#005fa9;
+  line-height:52rpx;
+  text-align:center;
+}
+.back-top{
+  position:fixed;
+  right:42rpx;
+  bottom:112rpx;
+  display:block;
+  width: 88rpx;
+  height: 88rpx;
+  background: url("http://mued3.jia.com/image/mobile/app_toutiao/back-top.png");
+  background-size: 100%;
+  z-index:9;
+}

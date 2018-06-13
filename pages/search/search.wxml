@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<view class='container'>
+  <view class='search'>
+    <view class='search-left'>
+      <image src='https://mued3.jia.com/applet/zixun/icon-search2.png' class='search-icon'></image>
+      <input class='search-input' placeholder='搜你想搜' bindinput="bindKeyInput" value='{{currentValue}}'></input>
+    </view>
+    <text class='cancel' bindtap='cancel'>取消</text>
+  </view>
+  <!--dropDown  -->
+  <scroll-view class='dropDown' wx:if="{{currentValue!=''}}">
+    <navigator class='item-search' wx:for="{{searchList}}" wx:key="{{unique}}" url="/pages/searchResult/searchResult?search={{currentValue+item}}" open-type="redirect">
+      <text class='keyWord'>{{currentValue}}</text>
+      <text>{{item}}</text>
+    </navigator>
+    <navigator class='viewResult' url="/pages/searchResult/searchResult?search={{currentValue}}">查看[{{currentValue}}]搜索的结果</navigator>
+  </scroll-view>
+  <!--搜索记录  -->
+  <block class='search-record'>
+    <text class='search-title'>搜索历史</text>
+    <navigator wx:for="{{RecordList}}" wx:key="unique" class='item-record'  open-type='redirect' url='/pages/searchResult/searchResult?search={{item}}'>
+      <view class='item-record-left'>
+
+        <image src='https://mued3.jia.com/applet/zixun/icon-time2.png' class='icon-time'></image>
+        <text>{{item}}</text>
+      </view>
+      <view class='item-record-right'>
+        <image  src='https://mued3.jia.com/applet/zixun/icon-delete2.png'  catchtap='deleteRecord' data-word="{{item}}"></image>
+      </view>
+    </navigator>
+  </block>
+</view>

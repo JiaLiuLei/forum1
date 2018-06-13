@@ -1,0 +1,71 @@
+<import src="../../common/common.wxml" />
+<view class="myforum">
+	<view class="person-massage flex">
+	  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class="none">
+	  	<image wx:if="{{headInfo}}" src="{{headInfo.photo_url}}" class="avatar"></image>
+	  	<image wx:else src="https://mued3.jia.com/image/mobile/app_toutiao/default-avatar.png" class="avatar"></image>
+	  </button>
+	  <view class="user-part fle">
+	    <view wx:if="{{headInfo}}" class="user-name">{{headInfo.account_name}}</view>
+	    <view wx:else class="user-name">请登录</view>
+	    <view wx:if="{{headInfo}}" class="user-tag">
+		    <view class="tag">发帖数<text>{{headInfo.note_count}}</text></view>
+		    <view class="tag">获赞数<text>{{headInfo.support_count}}</text></view>
+		    <view class="tag">粉丝<text>{{headInfo.attentioned_count}}</text></view>
+	    </view>
+	  </view>
+	</view>
+	<view class="forumContent">
+		<view class="fixedBox">
+			<view class="navTab flex {{isFixed?'fixedNav':''}}" id="PostTypeNav">
+				<view class="tabItem {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">
+					<icon class="icon1"></icon>
+					<view class="txt">我的帖子</view>
+				</view>
+				<view class="tabItem {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">
+					<icon class="icon2"></icon>
+					<view class="txt">我的消息<text class="num" wx:if="{{unread.support_unread_count>0}}">{{unread.support_unread_count}}</text></view>
+				</view>
+				<view class="tabItem {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">
+					<icon class="icon5"></icon>
+					<view class="txt">我的评论</view>
+				</view>
+				<view class="tabItem {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">
+					<icon class="icon3"></icon>
+					<view class="txt">我的关注</view>
+				</view>
+				<view class="tabItem {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">
+					<icon class="icon4"></icon>
+					<view class="txt">我的收藏</view>
+				</view>
+			</view>
+		</view>
+		<view class="forumContainer" wx:if="{{headInfo}}">
+			<view wx:if="{{currentTab==0}}" class="forumList PostsList"><!-- 我的发帖 -->
+				<template is="myPostItems" wx:if="{{myPost.length}}" data="{{datas:myPost,currentTab}}"/>
+				<template is="dummyStatus" wx:else data="{{statusTxt:'你还没有发过帖子哦~~'}}"/>
+			</view>
+			<view wx:if="{{currentTab==1}}" class="forumList likeList"><!-- 我的消息 -->
+				<template is="likeComment" wx:if="{{likes.length}}" data="{{datas:likes}}" />
+				<template is="dummyStatus" wx:else data="{{statusTxt:'你没有收到消息哦，发个帖试试吧~~'}}"/>
+			</view>
+			<view wx:if="{{currentTab==2}}" class="forumList"><!-- 我的评论 -->
+				<template is="commentList" wx:if="{{comment.length}}" data="{{datas:comment}}" />
+				<template is="dummyStatus" wx:else data="{{statusTxt:'你没有评论哦，去评论试试吧~~'}}"/>
+			</view>
+			<view wx:if="{{currentTab==3}}" class="forumList likeList">
+				<template is="myConcern" wx:if="{{concern.length}}" data="{{datas:concern}}" />
+				<template is="dummyStatus" wx:else data="{{statusTxt:'你还没有关注过装修号哦~~'}}"/>
+			</view>
+			<view wx:if="{{currentTab==4}}" class="forumList likeList"><!-- 我的收藏 -->
+				<template is="myPostItems" wx:if="{{collect.length}}" data="{{datas:collect,currentTab}}"/>
+				<template is="dummyStatus" wx:else data="{{statusTxt:'你还没有收藏哦~~'}}"/>
+			</view>
+		</view>
+		<view wx:else class="notlogin">
+			<image class="noContent" src="https://mued3.jia.com/image/mobile/app_toutiao/no-comment.png"></image>
+			<button class="notloginbtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class="none">登录</button>
+		</view>
+		<template wx:if="{{headInfo&&currentTab==0||headInfo&&currentTab==1}}" is="sendMenu" data="{{isSpread}}" /><!-- 发帖菜单 -->
+	</view>
+</view>

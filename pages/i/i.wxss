@@ -1,0 +1,78 @@
+.person-massage{padding:38rpx 24rpx;background: #fff;}
+.person-massage .avatar{width:108rpx;height:108rpx;border-radius:50%;}
+.user-part{margin-left:20rpx;}
+.user-part .user-name{font-size: 32rpx;font-weight:bold;max-width:300rpx;height:42rpx;line-height: 42rpx;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;}
+.user-part .user-tag{font-size: 24rpx;color: #999;margin-top:25rpx;}
+.user-part .tag{display:inline-block;margin-right:22rpx;}
+.user-part .tag text{color: #333;padding-left:10rpx;}
+.forumContent{margin-top:20rpx;background: #fff;}
+.fixedBox{width:100%;height:98rpx;}
+.navTab{border-bottom:1rpx solid #e0e0e0;background: #fff;position: relative;z-index: 1;}
+.fixedNav{position: fixed;top:0;left:0;right:0;z-index: 7;}
+.navTab .tabItem{height:98rpx;color: #333;padding:0 30rpx;}
+.navTab .tabItem .txt{position:relative;margin-top:18rpx;font-size: 22rpx;}
+.navTab .tabItem.active .txt{display:block;color: #000;box-sizing: border-box;}
+.navTab .tabItem .num{display: block;height:20rpx;line-height:20rpx;font-size: 16rpx;color: #fff;padding:2rpx 7rpx;background: #ee2d1b;border-radius:10rpx;position:absolute;top:-50rpx;right:26rpx;transform: translateX(100%);box-sizing: border-box;}
+.navTab .tabItem icon{display: block;width:34rpx;height:34rpx;margin:16rpx auto 0;background: url(http://mued3.jia.com/image/mobile/app_toutiao/iconIForum.png) no-repeat 0 0/400%;}
+.navTab .tabItem .icon1{background-position: 0 0;}
+.navTab .tabItem.active .icon1{background-position: 0 100%;}
+.navTab .tabItem .icon2{background-position: 33.3% 0;}
+.navTab .tabItem.active .icon2{background-position: 33.3% 100%;}
+.navTab .tabItem .icon3{background-position: 66.6% 0;}
+.navTab .tabItem.active .icon3{background-position: 66.6% 100%;}
+.navTab .tabItem .icon4{background-position: 100% 0;}
+.navTab .tabItem.active .icon4{background-position: 100% 100%;}
+.navTab .tabItem .icon5{background: url(http://mued3.jia.com/image/mobile/app_toutiao/iconIMsg.png) no-repeat 0 0/100%;}
+.navTab .tabItem.active .icon5{background-position: 100% 100%;}
+.forumList{padding:0 24rpx;}
+.postsItem{display:block;padding:35rpx 0;position:relative;background: #fff;}
+.forumList .postsItem:not(:first-child){border-top:1rpx solid #e1e1e1;}
+.postsItem .postsTiele{font-size: 32rpx;}
+.postsItem .postsTiele .tit{display: inline-block;line-height:42rpx;max-width:635rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;vertical-align: middle;}
+.postsItem .postsTiele .type{display: inline-block;height:34rpx;line-height: 34rpx;padding:0 5rpx;background: #fdedeb;color: #f0402d;font-size:20rpx;margin-left:18rpx;border:2rpx solid #f77f71;vertical-align: middle;}
+.postsNature{font-size: 22rpx;color: #999;margin-top:50rpx;}
+.postsItem .operate{width:27rpx;height:30rpx;background: url(http://mued3.jia.com/image/mobile/m_sygb/person_center/action_icon.png) no-repeat center center/100%;position:absolute;right:0;bottom:30rpx;z-index: 1;}
+.postsNature text{margin-right:15rpx;}
+.likeComment{padding:35rpx 0;background: #fff;}
+.likeComment:not(:last-child){border-bottom:1rpx solid #e1e1e1;}
+.likeComment .avatar{width:67rpx;height:67rpx;border-radius:50%;}
+.likeComment .engage{margin-left:15rpx;}
+.likeComment .matter text{margin-right:28rpx;color: #999;}
+.likeComment .matter .name{display:inline-block;max-width:185rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #333;}
+.likeComment .time{font-size: 22rpx;color: #999;margin-top:12rpx;}
+.likeComment .replyBtn{display:block;width:128rpx;padding:12rpx 0;border:1rpx solid #666;border-radius:23rpx;font-size: 22rpx;text-align:center;box-sizing: border-box;}
+.likeComment .replyBtn .icon{display: inline-block;width:26rpx;height:22rpx;background: url(https://mued3.jia.com/image/mobile/m_sygb/person_center/xiaoxi_icon.png) no-repeat 0 0/100%;margin-right:10rpx;vertical-align: -2rpx;}
+.likeComment .replyBtn.yetReply{color: #999;border-color: #e0e0e0;}
+.likeComment .matterBox{padding-left:85rpx;margin-top:28rpx;}
+.likeComment .PostPreview{padding:10rpx;background: #f6f6f6;}
+.likeComment .caseImg{width:80rpx;height:80rpx;}
+.likeComment .wordsTitle{margin-left:18rpx;line-height:80rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.likeComment .myComment{color: #999;padding:30rpx 20rpx;line-height:40rpx;background:#f6f6f6;align-items: flex-start;}
+.likeComment .othersComment{font-size:30rpx;line-height: 42rpx;margin-bottom:24rpx;}
+.posts-btns{padding:0 115rpx;position: fixed;bottom:112rpx;left:0;right:0;}
+.posts-btns .send{display: block;width:200rpx;height:66rpx;line-height: 66rpx;font-size: 26rpx;color: #fff;background: #ee2d1b;text-align:center;border-radius:33rpx;box-shadow: rgba(251,209,205,1) 0 4rpx 10rpx 0;}
+.posts-btns .postmsg{display:inline-block;width:33rpx;height:33rpx;background: url(https://mued3.jia.com/image/mobile/m_sygb/person_center/write_icon.png) no-repeat center center/30rpx;margin-right:15rpx;vertical-align: sub;}
+.posts-btns .videoIcon{display:inline-block;width:33rpx;height:33rpx;background: url(https://mued3.jia.com/image/mobile/app_toutiao/videoIcon.png) no-repeat center center/30rpx;margin-right:15rpx;vertical-align: sub;}
+.notlogin{height:80%;text-align:center;padding:160rpx 0 400rpx;}
+.notlogin .noContent{width:183rpx;height:160rpx;margin:0 auto;}
+.notlogin .notloginbtn{display:block;width:160rpx;height:64rpx;line-height: 64rpx;font-size: 26rpx;color: #fff;text-align:center;background: #ee2d1b;border-radius:6rpx;margin:30rpx auto 0;}
+.concernItem{padding:30rpx 0;position: relative;}
+.concernItem:not(:first-child){border-top:1rpx solid #e1e1e1;}
+.concernItem .logo{width:94rpx;height:94rpx;border-radius:50%;}
+.concernInfo{max-width:77%;margin:0 5%;}
+.concernInfo text{display: block;}
+.concernInfo .title{font-size: 32rpx;}
+.concernInfo .content{font-size: 24rpx;color: #999;margin-top:22rpx;}
+.concernItem .operate{width:27rpx;height:50rpx;background: url(http://mued3.jia.com/image/mobile/m_sygb/person_center/action_icon.png) no-repeat center center/100%;position:absolute;right:0;bottom:30rpx;z-index: 1;}
+.follow-up{padding:35rpx 0;}
+.follow-up:not(:first-child){border-top:1rpx solid #e1e1e1;}
+.follow-up .content{font-size: 30rpx;line-height: 42rpx;}
+.follow-up .nature-line{font-size: 22rpx;color: #999;margin-top:15rpx;position:relative;}
+.follow-up .nature-line .time{margin-right:20rpx;}
+.follow-up .nature-line .source{display: inline-block;}
+.follow-up .nature-line .someone{display:inline-block;color: #356eff;}
+.follow-up .kamiya{padding:10rpx;color: #999;background: #f6f6f6;margin-top:28rpx;overflow: hidden;}
+.follow-up .kamiya .caseImg{display: block;width:80rpx;height:80rpx;margin-right:16rpx;}
+.follow-up .kamiya .wordsTitle{line-height:80rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.follow-up .Comment{height:80rpx;line-height: 80rpx;padding:10rpx 20rpx;}
+.follow-up .operate{width:27rpx;height:30rpx;background: url(http://mued3.jia.com/image/mobile/m_sygb/person_center/action_icon.png) no-repeat center center/100%;position:absolute;right:0;bottom:0;z-index: 1;}

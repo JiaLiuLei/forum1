@@ -1,0 +1,33 @@
+<!--pages/postComments/postComments.wxml-->
+<import src="../../common/common.wxml" />
+<form report-submit='true' bindsubmit='postMsg'>
+<view class='page-content'>
+<!-- 文本域 -->
+<textarea
+    show-confirm-bar='{{false}}'
+    placeholder='{{options.reply_name}}'
+    maxlength='-1'
+    bindinput='getText'>
+</textarea>
+
+<!-- 图片 -->
+<view class='imgs'>
+    <view class='item' wx:for='{{image_list}}' wx:for-index='index' wx:key='{{index}}' wx:for-item='img'>
+        <view class='desc'>
+            <image src='{{img.url}}' mode='aspectFill'></image>
+            <icon bindtap='deleteImg' data-img='{{img.url}}'></icon>
+        </view>
+    </view>
+    <view class='item add'>
+        <view class='desc' bindtap='getImg'></view>
+    </view>
+</view>
+</view>
+<!-- 发送 -->
+<view class='tools'>
+    <button class='post-btn {{postClass}}'  formType="submit">发送</button>
+</view>
+</form>
+
+<template is="loginLayer" data="{{isLoginShow}}" />
+

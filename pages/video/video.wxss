@@ -1,0 +1,260 @@
+/* pages/video/video.wxss */
+:-moz-placeholder { color: #ccc;}
+::-webkit-input-placeholder { color:#ccc;}
+.video-page{
+  background:#000;
+  height:100%;
+}
+button{
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  line-height:1;
+}
+.dev-pos{
+  position:absolute;
+  top:30rpx;
+  right:30rpx;
+  width:94rpx;
+  height:94rpx;
+}
+.progress-box{
+  position:relative;
+  height:6rpx;
+  overflow:hidden;
+}
+.camera-box .tips{
+  position:absolute;
+  left:20%;
+  bottom:11rpx;
+  font-size:28rpx;
+  color:#fff;
+  width:218rpx;
+  height:58rpx;
+  line-height:58rpx;
+  text-align:center;
+  background:rgba(0,0,0,0.6);
+  border-radius:16rpx;
+  -webkit-border-radius:16rpx;
+}
+.camera-box .tips-icon{
+  position:absolute;
+  left:29%;
+  bottom:2rpx;
+  width:20rpx;
+  height:10rpx;
+}
+.progress-box .icon{
+  position:absolute;
+  left:30%;
+  top:0;
+  width:6rpx;
+  height:100%;
+  background:#fff;
+}
+.progress-bar{
+  height:6rpx;
+}
+button:after{
+  display:none;
+}
+.camera-box{
+  position:relative;
+  width:100%;
+  height:750rpx;
+}
+.record-wrap{
+  position:relative;
+  margin-top:138rpx;
+  height:200rpx;
+}
+.record-press{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  -webkit-transform:translateX(-50%);
+  -moz-transform:translateX(-50%);
+}
+.record-box{
+  position:relative;
+  width:124rpx;
+  height:124rpx;
+  background:#000;
+  border-radius:50%;
+  border:4rpx solid #fff;
+  margin:0 auto;
+}
+.record-box .record-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:112rpx;
+  height:112rpx;
+  background:#ee2d1b;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+.record-box.cur{
+  opacity:0.6;
+}
+.import-video{
+  width:120rpx;
+  height:120rpx;
+  background:url("https://mued3.jia.com/image/mobile/app_toutiao/video-icon.png") no-repeat;
+  background-size:100%;
+}
+.txt{
+  display:block;
+  text-align:center;
+  font-size:26rpx;
+  color:#fff;
+  margin-top:20rpx;
+}
+.import-btn{
+  float:left;
+  margin:4rpx 0 0 72rpx;
+}
+.record-success{
+  margin:138rpx 90rpx 0 90rpx;
+}
+.record-wrap .cancel-record,
+.record-wrap .confirm-record{
+  float:left;
+  width:120rpx;
+  height:120rpx;
+  background:url("https://mued3.jia.com/image/mobile/app_toutiao/video-icon.png") no-repeat 0 50%;
+  background-size:100%;
+}
+.record-wrap .confirm-record{
+  float:right;
+  background-position:0 100%;
+}
+.tier-btn-box{
+  text-align:right;
+  margin-right:30rpx;
+}
+.back-first{
+  position:absolute;
+  top:0;
+  left:30rpx;
+  font-size:26rpx;
+  color:#333;
+  width:124rpx;
+  height:54rpx;
+  line-height:54rpx;
+  background:#f5f5f5;
+  border:1rpx solid #ccc;
+  margin:20rpx 0;
+  border-radius:40rpx;
+  text-align:center;
+  box-sizing:border-box;
+}
+.comment-tier-btn{
+  display:inline-block;
+  font-size:26rpx;
+  color:#fff;
+  width:124rpx;
+  height:54rpx;
+  line-height:54rpx;
+  background:#ccc;
+  margin:20rpx 0;
+  border-radius:40rpx;
+  text-align:center;
+}
+.comment-tier-btn.cur{
+  background:#ee2d1b;
+}
+.send-video-page{
+  position:relative;
+}
+.send-video-page .input-view{
+  width:100%;
+  padding:14rpx 30rpx;
+  background:#fff;
+  margin-bottom:20rpx;
+  box-sizing:border-box;
+}
+.send-video-page .input-view .input-box{
+  width:100%;
+  height:40rpx;
+  line-height:40rpx;
+  font-size:30rpx;
+}
+.add-wrap-form{
+  display:flex;
+  background:#fff;
+  padding:30rpx;
+  margin-bottom:46rpx;
+}
+.add-wrap-form .video{
+  position:relative;
+  width:180rpx;
+  height:180rpx;
+  margin-right:20rpx;
+}
+.add-wrap-form .video .cover{
+  width:180rpx;
+  height:180rpx;
+}
+.add-wrap-form .video .cover.cur{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:90rpx;
+  height:90rpx;
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,,-50%);
+  -moz-transform:translate(-50%,-50%);
+}
+.add-wrap-form .video .video-icon{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:64rpx;
+  height:64rpx;
+  background:url("https://mued3.jia.com/image/mobile/toutiao/play-icon2.png") no-repeat;
+  background-size:100%;
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,,-50%);
+  -moz-transform:translate(-50%,-50%);
+}
+.add-wrap-form .cot-area-write{
+  width:100%;
+  height:320rpx;
+  line-height:40rpx;
+}
+.circle-select {
+  background:#fff;
+  height:82rpx;
+  border-top:1rpx solid #eaeaea;
+  line-height:82rpx;
+  padding:0 30rpx;
+  position:relative;
+  font-size:26rpx;
+  color:#333;
+}
+.circle-style-select {
+  width:100%;
+  height:80rpx;
+  position:absolute;
+  top:0;
+  left:0;
+  border:none;
+  opacity:0;
+}
+.circle-select .circle-style .arrow {
+  width:16rpx;
+  height:16rpx;
+  border-left:4rpx solid #9c9c9c;
+  border-bottom:4rpx solid #9c9c9c;
+  transform:rotate(-135deg);
+  -webkit-transform:rotate(-135deg);
+  -moz-transform:rotate(-135deg);
+  position:absolute;
+  top:50%;
+  right:26rpx;
+  z-index:3;
+  margin-top:-10rpx;
+}
+.circle-select .select-text.cur{float:right;margin-right:20rpx;}

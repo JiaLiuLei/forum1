@@ -1,0 +1,15 @@
+<!--pages/searchResult/searchResult.wxml-->
+<import src="../../common/common.wxml" />
+<view class='container'>
+  <view class='search'>
+    <navigator class='search-left' open-type='redirect' url='/pages/search/search?search={{keyWord}}'>
+      <image src='https://mued3.jia.com/applet/zixun/icon-search2.png' class='search-icon'></image>
+      <input class='search-input' placeholder='{{keyWord}}' disabled  />
+    </navigator>
+    <navigator class='cancel' open-type='switchTab' url='../index/index' hover-class="none">取消</navigator>
+  </view>
+  <!--文章列表  -->
+  <view class="circleList">
+     <template is="resultItems" data="{{datas:itemList}}"/>
+   </view>
+</view>

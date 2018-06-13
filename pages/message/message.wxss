@@ -1,0 +1,155 @@
+/* pages/message/message.wxss */
+:-moz-placeholder { color: #ccc;}
+::-webkit-input-placeholder { color:#ccc;}
+button{
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  line-height:1;
+  border:0;
+}
+button:after{
+  display:none;
+}
+.send-box{
+  height:94rpx;
+}
+.tier-btn-box{
+  text-align:right;
+  margin-right:30rpx;
+}
+.tier-btn-box.fixed{
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:9;
+}
+.comment-tier-btn{
+  display:inline-block;
+  font-size:26rpx;
+  color:#fff;
+  width:124rpx;
+  height:54rpx;
+  line-height:54rpx;
+  background:#ccc;
+  margin:20rpx 0;
+  border-radius:40rpx;
+  text-align:center;
+}
+.comment-tier-btn.cur{
+  background:#ee2d1b;
+}
+.message-page .input-view{
+  width:100%;
+  padding:14rpx 30rpx;
+  background:#fff;
+  border-bottom:1rpx solid #e0e0e0;
+  box-sizing:border-box;
+}
+.message-page .input-view .input-box{
+  width:100%;
+  height:40rpx;
+  line-height:40rpx;
+  font-size:30rpx;
+}
+.add-wrap-form{
+  position:relative;
+  background:#fff;
+  padding:22rpx 30rpx;
+  min-height:310rpx;
+  margin-bottom:20rpx;
+}
+.add-wrap-form .cot-area-write{
+  width:100%;
+  height:320rpx;
+  line-height:40rpx;
+}
+.circle-select {
+  background:#fff;
+  height:82rpx;
+  border-top:1rpx solid #eaeaea;
+  line-height:82rpx;
+  padding:0 30rpx;
+  position:relative;
+  font-size:26rpx;
+  color:#333;
+}
+.circle-style-select {
+  width:100%;
+  height:80rpx;
+  position:absolute;
+  top:0;
+  left:0;
+  border:none;
+  opacity:0;
+}
+.circle-select .circle-style .arrow {
+  width:16rpx;
+  height:16rpx;
+  border-left:4rpx solid #9c9c9c;
+  border-bottom:4rpx solid #9c9c9c;
+  transform:rotate(-135deg);
+  -webkit-transform:rotate(-135deg);
+  -moz-transform:rotate(-135deg);
+  position:absolute;
+  top:50%;
+  right:26rpx;
+  z-index:3;
+  margin-top:-10rpx;
+}
+.circle-select .select-text.cur{float:right;margin-right:20rpx;}
+.pic-upload-btn{
+  position:relative;
+  border:1px solid #eaeaea;
+  text-align:center;
+  width:104rpx;
+  height:104rpx;
+  background:#fff;
+  margin-top:90rpx;
+}
+.pic-upload-btn .upload-icon{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:-27rpx;
+  width:54rpx;
+  height:54rpx;
+  background:url(https://mued3.jia.com/image/mobile/zx_circle/add_icon.png) no-repeat;
+  background-size:100%;
+}
+.image-wrap{
+  position:relative;
+  width:100%;
+  background:#fff;
+  margin-top:24rpx;
+}
+.item-area-write{
+  display:block;
+  text-align:left;
+}
+.text-icon{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:56rpx;
+  height:36rpx;
+  background:url(https://mued3.jia.com/image/mobile/app_toutiao/text-icon.png) no-repeat;
+  background-size:100%;
+}
+.image-item{
+  position:relative;
+  text-align:center;
+  margin-bottom:18rpx;
+}
+.product-image{
+  max-width:100%;
+}
+.image-item .delete-upload-btn{
+  position:absolute;
+  top:30rpx;
+  right:30rpx;
+  width:52rpx;
+  height:52rpx;
+  background:url(https://mued3.jia.com/image/mobile/zx_circle/ft-handle-icon.png) no-repeat;
+  background-size:100%;
+}

@@ -1,0 +1,19 @@
+<import src="../../common/common.wxml" />
+<view class="index-page">
+  <text class="news_tiezi" wx:if="{{increase_count}}">今日新增{{increase_count}}个帖子</text>
+  <navigator class="show-search-box" url="../search/search" hover-class="none">
+        <view class="search-a"><icon class="icon"></icon>搜你想搜</view>
+  </navigator>
+  <!--分类-->
+    <template is="typePosts" data="{{circleIcon}}"/>
+   <!--置顶帖子-->
+   <template is="TopPosts" data="{{topList}}"/>
+
+   <view class="circleList">
+     <template is="PostItems" data="{{datas:itemList}}"/>
+   </view>
+  <template is="sendMenu" data="{{isSpread}}" /><!-- 发帖菜单 -->
+  <template is="loginLayer" data="{{isLoginShow}}" />
+  <!--返回顶部-->
+  <icon class="back-top" hidden="{{back}}" bindtap="backTop"></icon>
+</view>

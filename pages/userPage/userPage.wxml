@@ -1,0 +1,28 @@
+<import src="../../common/common.wxml" />
+<view class="person-massage flex">
+    <image src="{{headInfo.photo_url}}" class="avatar"></image>
+    <view class="user-part fle">
+        <view class="user-name">{{headInfo.account_name}}</view>
+        <view class="user-tag">
+            <view class="tag">发帖数
+                <text>{{headInfo.note_count}}</text>
+            </view>
+            <view class="tag">获赞数
+                <text>{{headInfo.support_count}}</text>
+            </view>
+            <view class="tag">粉丝
+                <text>{{headInfo.attentioned_count}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<view class="circleList">
+    <template is="PostItems" wx:if="{{topics.length}}" data="{{datas:topics, userpage: true}}" />
+    <template is="dummyStatus" wx:else data="{{statusTxt:'该用户还没发过帖子哦~~'}}"/>
+</view>
+
+<!-- loading -->
+<view class="loading" wx:if='{{topic_parms.show_loading}}' id='loading'>
+    <icon></icon>正在加载</view>

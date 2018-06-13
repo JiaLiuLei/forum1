@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/postDetails/postDetails",
+    "pages/video/video",
+    "pages/message/message",
+    "pages/i/i",
+    "pages/PostType/PostType",
+    "pages/postComments/postComments",
+    "pages/search/search",
+    "pages/searchResult/searchResult",
+    "pages/userPage/userPage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "齐家装修论坛",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-hover.png"
+      },
+      {
+        "pagePath": "pages/i/i",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-hover.png"
+      }
+    ],
+    "color": "#666",
+    "selectedColor": "#ee2d1b",
+    "backgroundColor": "#fff"
+  }
+}

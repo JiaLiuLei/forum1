@@ -1,0 +1,42 @@
+<import src="../../common/common.wxml" />
+<view class="PostType">
+	<navigator class="show-search-box" url="../search/search" hover-class="none">
+        <view class="search-a"><icon class="icon"></icon>搜你想搜</view>
+  	</navigator>
+	<view class="TypeHead flex">
+		<image src="{{circle.icon_url}}" class="caseImg"></image>
+		<view class="TypeNature fle">
+			<view class="HeadTitle">{{circle.title}}</view>
+			<view class="HeadTag flex">
+				<view class="tag"><text>浏览</text><text class="val">{{circle.browse_count}}</text></view>
+				<view class="tag"><text>帖子</text><text class="val">{{circle.note_count }}</text></view>
+				<view class="tag"><text>讨论</text><text class="val">{{circle.comment_count}}</text></view>
+			</view>
+		</view>
+		<!-- <view class="collect">收藏</view> -->
+	</view>
+	<!--置顶帖子-->
+  	<template is="TopPosts" data="{{topList:circle.top_note_list}}"/>
+	<view class="varietyPost">
+		<view class="fixedBox">
+			<view class="PostTypeNav flex {{isFixed?'fixedNav':''}}" id="PostTypeNav">
+				<view class="navItem {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav"><text>最新发表</text></view>
+				<view class="navItem {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav"><text>精华帖</text></view>
+			</view>
+		</view>
+		<view class="postContainer">
+			<view wx:if="{{currentTab==0}}" class="circleList">
+				<template is="PostItems" data="{{datas:postNewest}}"/>
+			</view>
+			<view wx:if="{{currentTab==1}}" class="circleList">
+				<template is="PostItems" data="{{datas:postEssence}}"/>
+			</view>
+		</view>
+	</view>
+	<template is="sendMenu" data="{{isSpread}}" /><!-- 发帖菜单 -->
+	<navigator class="homeIcon" open-type="switchTab" url="/pages/index/index" hover-class="none"></navigator>
+	<template is="loginLayer" data="{{isLoginShow}}" />
+  <!--分享canvas  -->
+  <canvas class='share-canvas' canvas-id="share-canvas" style='width:420px;height:360px'/>
+
+</view>

@@ -1,0 +1,45 @@
+<!--pages/message/message.wxml-->
+<view class="message-page">
+<form bindsubmit="sendMessage" report-submit="true">
+    <view class="send-box" wx:if="{{inputValue}}">
+        <button formType="submit" hover-class="none" class="tier-btn-box fixed" id="tier-btn-box"><text class="comment-tier-btn {{inputValue?'cur':''}}" >发布</text></button>
+    </view>
+    <view class="send-box" wx:else>
+         <view class="tier-btn-box fixed" id="tier-btn-box"><text class="comment-tier-btn">发布</text></view>
+    </view>
+    <view class="input-view">
+      <input type="text" placeholder="输入标题（30字以内）" class="input-box title" maxlength='30' name="title" bindinput="textInput" value="{{inputValue}}" />
+    </view>
+    <view class="add-wrap-form">
+      <textarea class="cot-area-write" maxlength='-1' placeholder="快来说点什么吧..." auto-height="true" name="content" value="{{zwTitle}}"></textarea>
+      	<!-- 图片列表 -->
+      	<view class="image-wrap">
+      	   <block wx:for="{{imageList}}" wx:for-index="index" wx:key>
+        	     <view class="image-item" wx:if="{{item.type==2}}">
+        	       <icon class="delete-upload-btn" data-index="{{index}}" bindtap="deleteImage"></icon>
+        	       <image src="{{item.url}}" data-src="{{item.url}}" class="product-image" mode="aspectFill" bindtap="previewImage" style="height:{{item.relHeight}}px;width:{{item.width}}px"></image>
+        	     </view>
+        	    <view class="image-item" wx:else>
+                    <textarea class="item-area-write" auto-height="true" name="textarea{{index}}" bindfocus="textFocus" bindblur="textBlur" bindinput="areaInput" data-index="{{index}}" value="{{item.text}}" maxlength='-1'></textarea>
+                  <icon class="text-icon" hidden="{{item.textIcon}}"></icon>
+                </view>
+             </block>
+      	</view>
+      <view wx:if="{{imageList.length<18}}" class="pic-upload-btn" bindtap="chooseImage"><icon class="upload-icon"></icon></view>
+    </view>
+   <view class="circle-select clearfix" wx:if="{{isList}}">
+        <view class="circle-style"><text class="hide-title">发布到:</text><span class="select-text cur">{{sendtxt}}</span>
+        </view>
+    </view>
+    <view class="circle-select clearfix" wx:else>
+        <view class="circle-style"><text class="hide-title" hidden="{{fabu}}">发布到:</text><span class="select-text {{fabu?'':'cur'}}">{{sendtxt}}</span>
+            <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{reverseArray}}" class="circle-style-select">
+                <view class="picker">
+                   当前选择:{{reverseArray[index]}}
+                </view>
+            </picker>
+            <icon class="arrow"></icon>
+        </view>
+    </view>
+ </form>
+</view>

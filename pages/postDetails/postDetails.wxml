@@ -1,0 +1,228 @@
+<!--pages/postDetails/postDetails.wxml-->
+<import src="../../common/common.wxml" />
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
+<import src="../../wxmlify/wxmlify.wxml" />
+<!-- 视频 -->
+<view class="video-mess {{videoHidden?'active':''}}" wx:if='{{msg.video}}'>
+    <video src="{{msg.video.video_url}}" controls id="myVideo" poster="{{msg.video.video_preview_url}}" objectFit="contain">
+    </video>
+</view>
+<view class='videoCopy' wx:if="{{videoHidden&&msg.video}}">
+</view>
+<!-- 帖子详情 -->
+<view class='page-detail' id='page-detail'>
+    <!-- title -->
+    <view class='h3'>
+        <text>{{msg.title}}</text>
+    </view>
+    <!-- 用户信息 -->
+    <view class='blogger'>
+        <view class='user-message'>
+            <navigator class='user-message-navigator' hover-class="none" url="../userPage/userPage?userid={{msg.user_id}}">
+                <view class='logo'>
+                    <image src='{{msg.user_avatar}}'></image>
+                </view>
+                <view class='desc'>
+                    <text class='name'>{{msg.user_name}}</text>
+                    <text class='time'>{{msg.display_time}}</text>
+                </view>
+            </navigator>
+            <form wx:if="{{msg}}"  report-submit='true' bindsubmit='attention'>
+             <button wx:if="{{msg.has_attention===true}}" class='focus already' form-type='submit'>已关注</button>
+            <button wx:else class='focus'  form-type='submit'>关注</button>
+            </form>
+
+        </view>
+    </view>
+    <!-- 帖子内容 -->
+    <view class='h4'>
+        <!-- <block wx:for='{{msg.content_list}}' wx:for-index="index" wx:for-item="item" wx:key='{{index}}'>
+            <image lazy-load mode='widthFix' src='{{item.url}}' wx:if='{{item.type === 2}}'>
+            </image>
+            <text wx:else>{{item.text}}</text>
+        </block> -->
+        <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+        <template is="wxmlify" data="{{nodes: myRichText}}"></template>
+    </view>
+    <!-- 去论坛看看 -->
+    <navigator url="../index/index" open-type='switchTab'>
+        <view class='goto-bbs'>
+            <view class='title'>去论坛首页看看</view>
+            <view class='desc'>
+                <image src='https://mued3.jia.com/image/mobile/zx_circle/f-icon1.png'></image>
+                <image src='https://mued3.jia.com/image/mobile/zx_circle/f-icon2.png'></image>
+                <image src='https://mued3.jia.com/image/mobile/zx_circle/f-icon3.png'></image>
+                <image src='https://mued3.jia.com/image/mobile/zx_circle/f-icon4.png'></image>
+                <image src='https://mued3.jia.com/image/mobile/zx_circle/f-icon5.png'></image>
+                <text>86920位装友一起帮你出谋划策</text>
+            </view>
+            <icon class='arrow'></icon>
+        </view>
+    </navigator>
+    <!-- 导航 -->
+    <!-- <view class='main-nav'>
+    <template is="typePosts" data="{{circleIcon}}" />
+  </view> -->
+</view>
+
+<!-- 热门评论 -->
+<view class='comments' wx:if='{{hot_list.length}}' id='hot-anchor'>
+    <view class='title hot'>热门评论</view>
+    <view class="details">
+        <view class='item' wx:for='{{hot_list}}' wx:for-index="index" wx:for-item="cts" wx:key='{{index}}'>
+            <template is='comments-msg' data='{{...cts, index, ctd, msg}}' />
+        </view>
+    </view>
+</view>
+
+<!-- 全部评论 -->
+<view class='comments' id='all-anchor'>
+    <view class='title'>全部评论</view>
+    <view class="details" wx:if='{{records.length}}'>
+        <view class='item' wx:for='{{records}}' wx:for-index="index" wx:for-item="cts" wx:key='{{index}}'>
+            <template is='comments-msg' data='{{...cts, index, msg}}' />
+        </view>
+    </view>
+    <!-- 暂无内容 -->
+    <view class='no-comments' wx:else data-rtype='13' data-id='{{msg.id}}' bindtap='gotoComment'>
+        <icon></icon>
+        <text>还没有评论呢~快来抢沙发</text>
+    </view>
+</view>
+
+<!-- 底线 -->
+<view class='bottom-space' wx:if='{{ctd.no_more}}'>
+    <text>我是有底线的</text>
+</view>
+
+<!-- loading -->
+<view class="loading" wx:if='{{ctd.show_loading}}' id='loading'>
+    <icon></icon>正在加载</view>
+
+
+<!-- 写评论 -->
+<view class='fixed-tools {{isIphoneX ? "iphoneX" : ""}}'>
+    <view class='desc'>
+        <view class='goto' data-rtype='13' data-id='{{msg.id}}' bindtap='gotoComment'>写点什么吧...</view>
+        <view class="tool">
+            <button class='item pl' bindtap='anchorPosition' hover-class='none'>
+                <icon class='icon'></icon>
+                <text wx:if="{{recordsCount}}" class='recordsCount'>
+               {{recordsCount ? recordsCount : ''}}
+        </text>
+            </button>
+             <form report-submit='true' bindsubmit='like' class='item-form' data-id='{{msg.id}}' data-etype='13'>  
+            <button class='item zan {{msg.has_supported ? "on" : ""}}'  form-type='submit' hover-class='none'>
+                <icon class='icon'></icon>
+                <text class='support_count' wx:if="{{msg.support_count }}">{{msg.support_count ? msg.support_count : ''}}</text>
+            </button>
+             </form> 
+            <form report-submit='true' bindsubmit='collect' class='item-form' data-rtype='13'>
+                <button class='item sc {{msg.has_collected ? "on" : ""}}'  hover-class='none' form-type='submit'>
+                    <icon class='icon'></icon>
+                </button>
+            </form>
+            <button class='item fx' open-type='share' hover-class='none'>
+                <image class='icon-wechat' src='http://mued3.jia.com/applet/icon-wechat.png'></image>
+            </button>
+            <button class='item fx' bindtap='openFriends' hover-class='none'>
+                <image class='icon-friends' src='http://mued3.jia.com/applet/icon-friends.png'></image>
+            </button>
+        </view>
+    </view>
+</view>
+
+<!-- 评论模版 -->
+<template name="comments-msg">
+    <view class='user-message'>
+        <navigator class='user-message-navigator' hover-class="none" url="../userPage/userPage?userid={{user_id}}">
+            <view class='logo'>
+                <image src='{{user_photo}}'></image>
+            </view>
+            <view class='desc'>
+                <text class='name'>{{user_name}}</text>
+                <text class='time'>{{format_time}}</text>
+            </view>
+        </navigator>
+        <view wx:if="{{floor>0}}" class='p'>{{floor}}楼</view>
+    </view>
+    <view class='message'>
+        <view class='ftp'>
+            <text class='txt'>{{content}}</text>
+            <view class='imgs' wx:if='{{image_list.length}}' data-index='{{index}}' data-dtype='{{ctd ? "hot_label" : ""}}' data-ctype='ftp' bindtap='previewImage'>
+                <scroll-view scroll-x>
+                    <view class='desc'>
+                        <view class='img' wx:for='{{image_list}}' wx:for-index="findex" wx:for-item="img" wx:key='{{findex}}'>
+                            <image mode='aspectFill' lazy-load src='{{img.url}}'>
+                            </image>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class='ttp' wx:if='{{comment_user_id}}'>
+            <view class='author-mess'>
+                <text>原贴: {{comment_user_name}}</text>
+                <text wx:if="{{comment_floor>0}}">{{comment_floor}}楼</text>
+            </view>
+            <text class='txt'>{{comment_content}}</text>
+            <view class='imgs' wx:if='{{comment_image_list.length}}' data-index='{{index}}' data-dtype='{{ctd ? "hot_label" : ""}}' data-ctype='ttp' bindtap='previewImage'>
+                <view class='img' wx:for='{{comment_image_list}}' wx:if='{{tindex < 3}}' wx:for-index="tindex" wx:for-item="img" wx:key='{{tindex}}'>
+                    <view class='desc'>
+                        <image mode='aspectFill' lazy-load src='{{img.url}}' bindtap='previewImage'>
+                        </image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='tools'>
+            <view class='del' wx:if='{{is_self}}' data-id='{{comment_id}}' data-cid='{{id}}' data-label='{{ctd ? "hot_label" : ""}}' data-index='{{index}}' bindtap='deleteComments'>
+                删除
+            </view>
+            <view class='interactive'>
+            <form report-submit='true' bindsubmit='like'  data-id='{{id}}' data-etype='6' data-label='{{ctd ? "hot_label" : ""}}' data-index='{{index}}' >
+                     <button class='zan {{has_supported ? "already" : ""}}' form-type='submit'>
+                    <icon></icon>
+                    {{support_count ? support_count : '赞'}}
+                </button>
+            </form>
+
+                <view class='reply' data-rtype='13' data-id='{{msg.id}}' data-cuid='{{user_id}}' data-cid='{{id}}' data-rname='{{user_name}}' bindtap='gotoComment'>
+                    <icon></icon>
+                    回复
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<template is="loginLayer" data="{{isLoginShow}}" />
+<canvas class='share-canvas' canvas-id="share-canvas" style='width:420px;height:360px' />
+<canvas class='friend-canvas' canvas-id="friend-canvas" style='width:480px;height:730px' />
+<!-- <template is="open-app" data="{{datas: openApp}}" wx:if='{{false}}' /> -->
+<!--朋友圈弹窗 -->
+<view class='share-friends {{(isPop&&temCode)?"active":""}}'>
+    <view class='h3'>
+        <text class='friends-title'>{{msg.title}}</text>
+    </view>
+    <view class='desc'>
+        <text class='name'>{{msg.user_name}}</text>
+        <text class='time'>{{msg.create_time}}</text>
+    </view>
+    <text class='mainText'> {{mainText}}</text>
+    <view class='friendImage' wx:if="{{friendImage}}">
+        <image src='{{friendImage}}' class='mainImg' bindload="imageLoad" style="width:{{previmgwidth}}rpx; height:{{previmgheight }}rpx;"></image>
+        <image src='{{videoImg}}' wx:if="{{videoImg}}" class='videoImg'></image>
+    </view>
+    <view class='qrcode'>
+        <view class='qrcode-left'>
+            <text>齐家|装修论坛</text>
+            <text>长按扫码阅读</text>
+        </view>
+        <view class='qrcode-right'>
+            <image src='{{temCode}}'></image>
+        </view>
+    </view>
+    <button class='save' bindtap='saveImg'>图片保存</button>
+</view>
+<view class='mask' bindtouchstart='closeFriend' wx:if="{{isPop&&temCode}}"></view>

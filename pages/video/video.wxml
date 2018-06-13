@@ -1,0 +1,58 @@
+<view class="video-page" hidden="{{firstPage}}">
+    <camera device-position="{{devPos}}" flash="off" binderror="error" class="camera-box" hidden="{{firstPage}}">
+      <cover-image class="dev-pos" bindtap="changePos" src="https://mued3.jia.com/image/mobile/app_toutiao/pos-btn.png" />
+      <cover-view class="tips">至少录到这里</cover-view>
+      <cover-image class="tips-icon" src="https://mued3.jia.com/image/mobile/app_toutiao/sanjiao.png"></cover-image>
+    </camera>
+    <view class="progress-box">
+     <text class="icon"></text>
+     <progress percent="{{count}}" backgroundColor="#333" activeColor="#fff" class="progress-bar" />
+    </view>
+    <view class="record-wrap" hidden="{{isCamra}}">
+        <button class="import-btn" bindtap="chooseVideo" hover-class="none">
+          <icon class="import-video"></icon>
+          <text class="txt">导入视频</text>
+        </button>
+        <view class="record-press">
+          <view class="record-box {{isPress?'cur':''}}">
+            <button type="primary" bindtouchstart="vibrateLong" bindlongpress="startRecord" bindtouchend="stopRecord" class="record-btn" hover-class="none"></button>
+          </view>
+          <text class="txt">按住拍小视频</text>
+        </view>
+    </view>
+    <view class="record-wrap record-success" hidden="{{isBat}}">
+       <icon class="cancel-record" bindtap="cancelRecord"></icon>
+       <icon class="confirm-record" bindtap="confirmRecord"></icon>
+    </view>
+</view>
+<view class="send-video-page" hidden="{{secondPage}}">
+      <text class="back-first" bindtap="backFirstPage" hidden="{{formEdit}}">取消</text>
+     <view class="tier-btn-box" wx:if="{{inputValue||textValue}}" bindtap="sendVideo">
+      <text class="comment-tier-btn {{inputValue||textValue?'cur':''}}">发布</text>
+      </view>
+     <view wx:else class="tier-btn-box"><text class="comment-tier-btn {{inputValue||textValue?'cur':''}}">发布</text></view>
+    <view class="input-view">
+      <input type="text" placeholder="输入标题（30字以内）" class="input-box title" maxlength="30" bindinput="textInput" value="{{inputValue}}" />
+    </view>
+    <view class="add-wrap-form">
+      <view class="video">
+        <image src="{{cover?cover:'https://mued3.jia.com/image/mobile/toutiao/tt_loading.gif'}}" class="cover {{cover?'':'cur'}}" mode="aspectFill"></image>
+        <icon class="video-icon" hidden="{{!cover}}"></icon>
+      </view>
+      <textarea class="cot-area-write fle" placeholder="快来说点什么吧..." bindinput="areaInput" maxlength='-1' value="{{textValue}}"></textarea>
+    </view>
+  <view class="circle-select clearfix" wx:if="{{isList}}">
+         <view class="circle-style"><text class="hide-title">发布到:</text><span class="select-text cur">{{sendtxt}}</span>
+         </view>
+     </view>
+     <view class="circle-select clearfix" wx:else>
+            <view class="circle-style"><text class="hide-title" hidden="{{fabu}}">发布到:</text><span class="select-text {{fabu?'':'cur'}}">{{sendtxt}}</span>
+                <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{reverseArray}}" class="circle-style-select">
+                    <view class="picker">
+                       当前选择:{{reverseArray[index]}}
+                    </view>
+                </picker>
+                <icon class="arrow"></icon>
+            </view>
+      </view>
+</view>

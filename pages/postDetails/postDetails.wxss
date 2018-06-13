@@ -1,0 +1,805 @@
+.user-message .desc
+
+page {
+  line-height: 1.5;
+  height: auto;
+  position: relative;
+}
+
+/* video-mess */
+
+.video-mess video {
+  display: block;
+  width: 100%;
+}
+
+/* page-detail */
+
+.page-detail {
+  padding: 0 30rpx 34rpx;
+  background-color: #fff;
+}
+
+.page-detail .h3 {
+  font-size: 42rpx;
+  padding: 20rpx 0 28rpx;
+  line-height: 60rpx;
+  background-color: #fff;
+  font-weight: 500;
+}
+
+/* user-message */
+
+.user-message {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-message-navigator{
+  display: flex;
+}
+
+.user-message .logo {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.user-message .logo image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-message .desc {
+  flex: 1;
+  padding-left: 14rpx;
+  font-size: 0;
+  max-width: 300rpx;
+  overflow: hidden;
+}
+
+.user-message .desc .name {
+  display: block;
+  font-size: 31.25rpx;
+  margin-bottom: 10rpx;
+}
+
+.user-message .desc .time {
+  font-size: 20.83rpx;
+  color: #999;
+}
+
+.user-message .focus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24rpx;
+  height: 50rpx;
+  border: 1px solid #ee2d1b;
+  border-radius: 50rpx;
+  background-color: #fff8f7;
+  font-size: 22.92rpx;
+  color: #ee2d1b;
+}
+
+.user-message .focus:after {
+  content: '关注';
+}
+
+.user-message .focus:before {
+  content: '';
+  display: inline-block;
+  width: 21rpx;
+  height: 21rpx;
+  background: url(//mued3.jia.com/image/mobile/app_toutiao/focus-newicon.png) no-repeat;
+  background-size: 100%;
+  margin-right: 10rpx;
+}
+
+.user-message .focus.already {
+  color: #999;
+  background-color: #fbfbfb;
+  border-color: #dad5cc;
+}
+
+.user-message .focus.already:before {
+  display: none;
+}
+
+.user-message .focus.already:after {
+  content: '已关注';
+}
+
+.user-message .p {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* h4 */
+
+.page-detail .h4 {
+  font-size: 32rpx;
+  padding-top: 46rpx;
+  line-height: 1.6;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.page-detail .h4 .url {
+  font-size: 26rpx;
+  color: #2a88fc;
+}
+
+.page-detail .h4 .url:before {
+  content: '';
+  display: inline-block;
+  width: 22rpx;
+  height: 22rpx;
+  background: url(//mued3.jia.com/image/mobile/app_toutiao/url-prefix.png) no-repeat;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 6rpx;
+  transform: translateY(-3rpx);
+}
+
+.page-detail .h4 .url:after {
+  content: '复制地址';
+  display: inline-block;
+  font-size: 22rpx;
+  border-radius: 4rpx;
+  padding: 8rpx 10rpx;
+  background-color: #f0f7ff;
+  margin: 0 10rpx;
+}
+
+.page-detail .h4 image {
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+/* goto-bbs */
+
+.goto-bbs {
+  background-color: #f7f7f7;
+  padding: 20rpx;
+  margin-top: 36rpx;
+  position: relative;
+}
+
+.goto-bbs .title {
+  font-size: 32rpx;
+}
+
+.goto-bbs .desc {
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
+.goto-bbs .desc image {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 15rpx;
+  margin-right: 6rpx;
+}
+
+.goto-bbs .desc text {
+  padding-left: 6rpx;
+  font-size: 22rpx;
+}
+
+.goto-bbs .arrow {
+  position: absolute;
+  top: 50%;
+  right: 24rpx;
+  margin-top: -9rpx;
+  border-left: 1rpx solid #999;
+  border-bottom: 1rpx solid #999;
+  width: 18rpx;
+  height: 18rpx;
+  transform: rotate(225deg);
+}
+
+/* main-nav */
+
+.main-nav {
+  padding-top: 10rpx;
+}
+
+.main-nav .child {
+  display: flex;
+  padding-top: 8rpx;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.main-nav .child:last-child {
+  border-bottom: none;
+}
+
+.main-nav .child navigator {
+  flex: 1;
+}
+
+.main-nav .child .desc {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  font-size: 26rpx;
+  position: relative;
+}
+
+.main-nav .child .desc:after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 28rpx;
+  background-color: #e0e0e0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -14rpx;
+}
+
+.main-nav .child navigator:nth-child(2n+2) .desc {
+  justify-content: center;
+}
+
+.main-nav .child navigator:nth-child(3n+3) .desc {
+  justify-content: flex-end;
+}
+
+.main-nav .child navigator:last-child .desc:after {
+  display: none;
+}
+
+.main-nav .child navigator image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 10rpx;
+}
+
+/* comments */
+
+.comments {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.comments .title {
+  padding: 26rpx 30rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comments .title.hot {
+  color: #ee2d1b;
+}
+
+.comments .title.hot:after {
+  content: '';
+  display: inline-block;
+  width: 31rpx;
+  height: 37rpx;
+  background: url(//mued3.jia.com/image/mobile/app_toutiao/hot-icon.png) no-repeat;
+  background-size: 100%;
+  vertical-align: bottom;
+  margin-left: 14rpx;
+}
+
+.comments .details {
+  padding: 0 30rpx;
+}
+
+.comments .item {
+  padding-top: 30rpx;
+}
+
+.comments .item .user-message .logo {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.comments .item .user-message .desc .name {
+  font-size: 26rpx;
+}
+
+.comments .item .message {
+  margin-left: 70rpx;
+  padding: 16rpx 0 30rpx 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comments .item:last-child .message {
+  border-bottom: none;
+}
+
+.comments .item .message .txt {
+  font-size: 30rpx;
+  display: block;
+  margin-bottom: 20rpx;
+  line-height: 50rpx;
+  word-break: break-all;
+}
+.comments .item .ftp .imgs {
+}
+
+.comments .item .ftp .imgs scroll-view .desc {
+  display: flex;
+  overflow: none;
+}
+
+.comments .item .ftp .imgs scroll-view .img {
+  flex-shrink: 0;
+  padding-right: 16rpx;
+  height: 320rpx;
+  width: 420rpx;
+}
+
+.comments .item .imgs image {
+  width: 100%;
+  height: 100%;
+}
+
+.comments .item .ttp {
+  background-color: #f5f5f5;
+  padding: 0 18rpx 30rpx;
+  margin-top: 18rpx;
+}
+
+.comments .item .ttp .author-mess {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: #999;
+  padding-top: 28rpx;
+}
+
+.comments .item .ttp .txt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+
+.comments .item .ttp .imgs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.comments .item .ttp .img .desc {
+  padding-top: 56.5%;
+  position: relative;
+
+}
+
+.comments .item .ttp .img {
+  flex-shrink: 0;
+  width: 32%;
+  margin-right: 2%;
+  padding-top: 2%;
+}
+
+.comments .item .ttp .img image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.comments .item .ttp .img:last-child {
+  margin-right: 0;
+}
+
+.comments .item .tools {
+  display: flex;
+  font-size: 22rpx;
+  padding-top: 30rpx;
+}
+
+.comments .item .tools .del {
+  color: #076cb3;
+}
+
+.comments .item .tools .interactive {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #999;
+}
+
+.comments .item .tools .interactive icon {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  background: url(//mued3.jia.com/image/mobile/app_toutiao/interactive-icon.png) no-repeat;
+  background-size: 100%;
+  vertical-align: top;
+  margin-right: 10rpx;
+}
+
+.comments .item .tools .interactive view {
+  margin-right: 24rpx;
+}
+
+.comments .item .tools .interactive view:last-child {
+  margin-right: 0;
+}
+
+.comments .item .tools .zan.already icon {
+  background-position: 0 50%;
+  animation: mylove 0.3s;
+}
+.comments .item .tools .zan {
+  font-size: 20rpx;
+display: inline-block;
+vertical-align: text-bottom;
+margin-right: 20rpx;
+color: #999;
+line-height: 31rpx;
+margin-top: -10rpx;
+}
+.comments .item .tools .zan.already {
+  color: #ee2e1c;
+}
+
+.comments .item .tools .reply icon {
+  background-position: 0 100%;
+}
+
+/* no-comment */
+
+.no-comments {
+  height: 594rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-comments icon {
+  display: block;
+  width: 183rpx;
+  height: 160rpx;
+  background: url("http://mued3.jia.com/image/mobile/app_toutiao/no-comment.png") no-repeat;
+  background-size: 100%;
+}
+
+.no-comments text {
+  font-size: 22rpx;
+  color: #999;
+  padding-top: 40rpx;
+}
+
+/* bottom-space */
+
+.bottom-space {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: #999;
+}
+
+.bottom-space text {
+  padding: 0 20rpx;
+}
+
+.bottom-space::before, .bottom-space::after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 42rpx;
+  background-color: #e0e0e0;
+}
+
+/* fixed-tools */
+
+.fixed-tools {
+  height: 98rpx;
+}
+
+.fixed-tools .desc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 98rpx;
+  background-color: #fff;
+  padding: 0 30rpx 0 20rpx;
+  border-top: 1px solid #e0e0e0;
+}
+.fixed-tools.iphoneX{
+    height: 166rpx;
+}
+.fixed-tools.iphoneX .desc{
+    padding-bottom: 68rpx;
+}
+.fixed-tools .goto {
+   /* flex: 1;  */
+  height: 69rpx;
+  border-radius: 69rpx;
+  line-height: 69rpx;
+  padding: 0 30rpx;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #999;
+  width: 40%;
+}
+
+.fixed-tools .tool {
+  height: 69rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-left: 30rpx;
+}
+.fixed-tools .tool .item{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40rpx 0 10rpx;
+    /* position: relative; */
+}
+.fixed-tools .tool .item:last-child{
+    padding-right: 0;
+}
+.fixed-tools .tool .item .icon{
+    width: 38rpx;
+    height: 38rpx;
+    background: url(//mued3.jia.com/image/mobile/app_toutiao/topic-tool-icon.png) no-repeat;
+    background-size: 100%;
+}
+.fixed-tools .tool .item.zan .icon{
+    background-position: 0 20%;
+}
+.fixed-tools .tool .item.zan.on .icon{
+    background-position: 0 40%;
+}
+.fixed-tools .tool .item.sc .icon{
+    background-position: 0 60%;
+}
+.fixed-tools .tool .item.sc.on .icon{
+    background-position: 0 80%;
+}
+.fixed-tools .tool .item.on .icon{
+    animation: mylove 0.3s;
+}
+.fixed-tools .tool .item.fx .icon{
+    background-position: 0 100%;
+}
+
+.fixed-tools .tool .item text{
+  padding: 0 10rpx;
+   height: 22rpx;
+   line-height: 9rpx;
+font-size:18rpx;
+background-color: #ee2d1b;
+color:white;
+position:absolute;
+left:40rpx;
+bottom:40rpx;
+border-radius:11rpx;
+}
+
+.fixed-tools .tool .item .support_count{
+   line-height: 24rpx;
+
+}
+.fixed-tools .tool .item.on text{
+    /* color: #ee2d1b; */
+}
+
+@keyframes mylove {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  95% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fixed-tools .tool .reply icon {
+  background-position: 0 100%;
+}
+
+.fixed-tools .tool text {
+  font-size: 18rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.loading {
+  text-align: center;
+  font-size: 20rpx;
+  color: #999;
+  padding: 20rpx 0;
+  position: relative;
+  background-color: #f6f6f6;
+}
+
+.loading icon {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: url(//mued3.jia.com/image/mobile/wxStore/loadmore.gif) 0 0 no-repeat;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}
+
+.wxParse-inline {
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.wxmlified-image{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.wxmlified-text{
+  line-height: 60rpx;
+}
+.icon-wechat{
+  width: 42rpx;
+  height: 36rpx;
+}
+.icon-friends{
+  width: 40rpx;
+  height: 40rpx;
+}
+/*分享到朋友圈样式  */
+.share-friends{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 429rpx;
+  background-color: white;
+  z-index: 2;
+  padding: 30rpx;
+  border-radius: 13rpx;
+  visibility: hidden;
+}
+.share-friends .h3 {
+  background-color: #fff;
+  font-weight: 500;
+}
+.share-friends.active{
+  visibility: visible;
+}
+.qrcode-right image{
+  width: 116rpx;
+  height: 116rpx;
+}
+.share-friends .desc{
+  color: #999;
+  font-size: 20rpx;
+  line-height: 60rpx;
+  margin-bottom: 10rpx;
+}
+.share-friends .save{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -100rpx;
+  width: 212rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 34rpx;
+  background-color: #ee2d1b;
+  color: white;
+  font-size: 22rpx;
+}
+.qrcode{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.qrcode-left{
+  padding-top: 30rpx;
+}
+.qrcode-left text{
+  display: block;
+  font-size: 20rpx;
+}
+.qrcode-left text:nth-child(1){
+  color: #999;
+}
+
+.qrcode-right image{
+}
+.mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+     .friend-canvas{position:fixed;left:0;bottom:0;transform:translateX(200%)}     
+ .friends-title{
+   text-align: left;
+   font-size: 30rpx;
+   line-height: 40rpx;
+text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+ }
+ .mainText{  
+   font-size: 24rpx;
+   line-height: 30rpx;
+  text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display:   -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical; 
+  margin-bottom: 20rpx;
+}
+.friendImage{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.friendImage .mainImg{
+  display: inline-block;
+  margin:  0 auto;
+  
+}
+.friendImage .videoImg{
+  width: 89rpx;
+  height: 89rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.share-friends .desc .time{
+  margin-left: 10rpx;
+}
+.tool .recordsCount{
+
+
+}
+.videoCopy{
+  height: 400rpx;
+  width: 100%;
+  background: #000;
+}
+.video-mess.active{
+    position: absolute;
+    top: -400rpx;
+    left: 0;
+}
+#myVideo{
+  height: 400rpx;
+}
+.item-form{
+display:block;
+box-sizing:border-box;
+width:90rpx;
+height:80rpx;
+
+}

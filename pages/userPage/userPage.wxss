@@ -1,0 +1,62 @@
+/* person-massage */
+.person-massage {
+    padding: 38rpx 24rpx;
+    background: #fff;
+}
+
+.person-massage .avatar {
+    width: 108rpx;
+    height: 108rpx;
+    border-radius: 50%;
+}
+
+.user-part {
+    margin-left: 20rpx;
+}
+
+.user-part .user-name {
+    font-size: 32rpx;
+    font-weight: bold;
+    max-width:400rpx;
+overflow:hidden;
+
+}
+
+.user-part .user-tag {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 25rpx;
+}
+
+.user-part .tag {
+    display: inline-block;
+    margin-right: 22rpx;
+}
+
+.user-part .tag text {
+    color: #333;padding-left:10rpx;
+}
+/* loading */
+.loading {
+    text-align: center;
+    font-size: 20rpx;
+    color: #999;
+    padding: 20rpx 0;
+    position: relative;
+    background-color: #f6f6f6;
+}
+
+.loading icon {
+    display: inline-block;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background: url(//mued3.jia.com/image/mobile/wxStore/loadmore.gif) 0 0 no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: 12rpx;
+}
+/* circle-logo */
+.circle-logo {
+    display: none;
+}

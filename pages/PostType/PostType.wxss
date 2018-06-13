@@ -1,0 +1,18 @@
+.TypeHead{padding:15rpx 30rpx 42rpx;background: #fff;}
+.TypeHead .caseImg{width:102rpx;height:102rpx;}
+.TypeNature{padding:0 24rpx;}
+.TypeNature .HeadTitle{font-size: 34rpx;font-weight:bold;}
+.TypeNature .HeadTag{margin-top:24rpx;font-size: 24rpx;justify-content: flex-start;}
+.TypeNature .HeadTag .tag{padding:0 12rpx;}
+.TypeNature .HeadTag .tag:first-child{padding-left:0;}
+.TypeNature .HeadTag .tag:not(:last-child){border-right:1rpx solid #999;}
+.TypeNature .HeadTag .tag .val{padding-left:6rpx;}
+.TypeHead .collect{width:110rpx;height:46rpx;line-height: 46rpx;text-align:center;border:1rpx solid #666;border-radius:23rpx;}
+.fixedBox{width:100%;height:88rpx;}
+.PostTypeNav{width:100%;height:88rpx;justify-content: center;border-bottom:1rpx solid #e0e0e0;background: #fff;}
+.PostTypeNav.fixedNav{position: fixed;top:0;left:0;right:0;z-index: 7;}
+.PostTypeNav .navItem{line-height: 88rpx;padding:0 31rpx;font-size: 30rpx;color: #666;position:relative;}
+.PostTypeNav .active{font-weight:bold;color: #ee2d1b;}
+.PostTypeNav .active:after{content: '';width:66rpx;height:5rpx;background: #ee2d1b;position:absolute;bottom:0;left:50%;transform: translateX(-50%);}
+.varietyPost{background: #fff;margin-top:20rpx;}
+.homeIcon{display:block;width:98rpx;height:98rpx;background: url(http://mued3.jia.com/image/mobile/app_toutiao/homeIcon.png) no-repeat 0 0/100%;position:fixed;bottom:100rpx;right:36rpx;z-index: 2;}

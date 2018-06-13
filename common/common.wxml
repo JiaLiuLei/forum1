@@ -1,0 +1,277 @@
+<!-- 圈子分类 -->
+<template name="typePosts">
+  <view class="circle-type-box clearfix">
+    <block wx:for="{{circleIcon}}" wx:for-item="item" wx:key="">
+      <view class="circle-type-li">
+        <navigator url="../PostType/PostType?id={{item.id}}" class="circle-type-a" hover-class="none">
+          <image src="{{item.icon_url}}"></image>
+          <text>{{item.title}}</text>
+        </navigator>
+      </view>
+    </block>
+  </view>
+</template>
+<!-- 置顶帖子 -->
+<template name="TopPosts">
+  <view class="tiezi-detail-stick">
+    <block wx:for="{{topList}}" wx:key>
+      <view class="tiezi-detail-item">
+        <navigator url="../postDetails/postDetails?id={{item.id}}" class="zt-title ellipsis" hover-class="none">
+          <text class="stick">置顶</text>{{item.title}}</navigator>
+      </view>
+    </block>
+  </view>
+</template>
+<!-- 帖子列表 -->
+<template name="PostItems">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="circleInfo">
+      <view class="circle-logo">
+        <view class="circle-homepage flex">
+          <navigator class="userMsg" url="../userPage/userPage?userid={{item.user_id}}" hover-class="none">
+            <image class="circle-tx" src="{{item.user_avatar}}"></image>
+            <text class="circle-name">{{item.user_name}}</text>
+          </navigator>
+          <text class="circle-time">{{item.display_time}}</text>
+        </view>
+      </view>
+      <view class="circle-detail {{item.video?'video':''}}">
+         <navigator url="../postDetails/postDetails?id={{item.id}}" class="circle-a" hover-class="none">
+          <view class="circle-wrap">
+            <text class="stick" wx:if="{{item.is_top==1}}">置顶</text>
+            <text class="stick" wx:if="{{item.is_recommend==1}}">精华</text>
+            <text class="stick" wx:if="{{item.is_activity==1}}">活动</text>
+            <text class="stick" wx:if="{{item.video}}">视频</text>
+            <text class="title">{{item.title}}</text>
+          </view>
+          <view class="topic-img-ul clearfix" wx:if="{{item.image_list.length>=3&&item.image_list.length<4}}">
+            <block wx:for="{{item.image_list}}" wx:for-item="image" wx:key="">
+              <view class="topic-img-li image-box">
+                <image src="{{image.url}}" mode="aspectFill"></image>
+              </view>
+            </block>
+          </view>
+          <view class="topic-img-ul clearfix" wx:if="{{item.video}}">
+            <view class="topic-img-li image-box">
+              <image src="{{item.video.video_preview_url}}" mode="aspectFill"></image>
+              <view class="video-btn"></view>
+            </view>
+          </view>
+        </navigator>
+        <view class="topic-info-wrap clearfix" wx:if='{{userpage}}'>
+          <view class="from-tag">
+            <text class="icon">{{item.update_time}}</text>
+            <!-- <navigator url="../PostType/PostType?id={{item.community_master_id}}" hover-class="none" class="from-tag-a">{{item.community_master.title}}</navigator> -->
+          </view>
+          <view class="watch-num">
+            <text class="icon">回帖</text>
+            <text>{{item.comment_count}}</text>
+          </view>
+          <view class="pinglin-num">
+            <text class="icon">赞</text>
+            <text>{{item.support_count}}</text>
+          </view>
+        </view>
+        <view class="topic-info-wrap clearfix" wx:else>
+          <view class="from-tag">
+            <text class="icon">来自</text>
+            <navigator url="../PostType/PostType?id={{item.community_master_id}}" hover-class="none" class="from-tag-a">{{item.community_master.title}}</navigator>
+          </view>
+          <view class="watch-num">
+            <text class="icon">浏览</text>
+            <text>{{item.browse_count}}</text>
+          </view>
+          <view class="pinglin-num">
+            <text class="icon">评论</text>
+            <text>{{item.comment_count}}</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </block>
+</template>
+<!-- 我的帖子.我的收藏 -->
+<template name="myPostItems">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="postsItem">
+      <navigator url="../postDetails/postDetails?id={{item.id}}" hover-class="none">
+        <view class="postsTiele">
+          <text class="tit">{{item.title}}</text>
+          <text class="type" wx:if="{{item.display_type == 1}}">视频</text>
+        </view>
+        <view class="postsNature">
+          <text>回帖 {{item.comment_count}}</text>
+          <text>赞 {{item.support_count}}</text>
+          <text>{{item.display_time}}</text>
+        </view>
+      </navigator>
+      <view class="operate" wx:if="{{currentTab == 0}}" data-id="{{item.id}}" data-type="{{item.display_type==1?'video':'other'}}" data-index="{{index}}" bindtap="deletePost"></view>
+      <view class="operate" wx:if="{{currentTab == 3}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="cancelCollect"></view>
+    </view>
+  </block>
+</template>
+<!-- 我的关注 -->
+<template name="myConcern">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="concernItem">
+      <navigator hover-class="none" url="../userPage/userPage?userid={{item.user_id}}">
+          <view class="flex" id="{{item.id}}">
+              <image class="logo" src="{{item.thumb}}"></image>
+              <view class="concernInfo fle">
+              <text class="title ellipsis">{{item.account_name}}</text>
+              <text wx:if="{{item.intro}}" class="content ellipsis">{{item.intro}}</text>
+              </view>
+          </view>
+      </navigator>
+      <view class="operate" data-id="{{item.user_id}}" data-index="{{index}}" bindtap="cancelConcern"></view>
+    </view>
+  </block>
+</template>
+<!-- 发帖菜单按钮 -->
+<template name="sendMenu">
+  <view class="send-menu {{isSpread?'spread':'spreads'}}">
+  <form report-submit='true' bindsubmit='switchMenu'>
+    <button class="menuBtn post" data-link="../message/message" bindtap="sendPost"></button>
+    <button class="menuBtn video" data-link="../video/video" bindtap="sendPost"></button>
+    <button class="menuBtn unfold"  form-type='submit'></button>
+  </form>
+  </view>
+</template>
+<!-- 点赞评论消息 -->
+<template name="likeComment">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="likeComment">
+      <view class="Who-what flex">
+        <image src="{{item.sender_header_url}}" class="avatar"></image>
+        <view class="engage fle">
+          <view class="matter">
+            <text class="name">{{item.sender_name}}</text>
+            <text wx:if="{{item.message_type==0}}">评论了你的帖子</text>
+            <text wx:elif="{{item.message_type==1}}">回复了你的评论</text>
+            <text wx:elif="{{item.message_type==2}}">赞了你的帖子</text>
+            <text wx:elif="{{item.message_type==3}}">赞了你的评论</text>
+          </view>
+          <view class="time">{{item.format_send_time}}</view>
+        </view>
+        <navigator wx:if="{{item.message_type==0 || item.message_type==1}}" url="../postComments/postComments?entity_type={{item.entity_type}}&comment_user_id={{item.sender_id }}&comment_id={{item.comment_id}}&entity_id={{item.entity_id}}&rname={{item.sender_name}}&return_url=/pages/i/i%%tab--2&target=switchTab"
+          hover-class="none" class="replyBtn">
+          <icon class="icon"></icon>
+          <text>回复</text>
+        </navigator>
+        <!-- <button class="replyBtn yetReply"><text>已回复</text></button> -->
+      </view>
+      <view class="matterBox">
+        <view class="othersComment" wx:if="{{item.content}}">{{item.content}}</view>
+        <navigator url="../postDetails/postDetails?id={{item.entity_id}}" hover-class="none" class="PostPreview flex" wx:if="{{item.message_type==0 || item.message_type==2}}">
+          <image wx:if="{{item.entity_cover_url}}" src="{{item.entity_cover_url}}" class="caseImg"></image>
+          <view class="wordsTitle fle" wx:if="{{item.entity_content}}">{{item.entity_content}}</view>
+        </navigator>
+        <navigator url="../postDetails/postDetails?id={{item.entity_id}}" hover-class="none" class="myComment flex" wx:if="{{item.message_type==1 || item.message_type==3}}">
+          <text>我的评论：</text>
+          <text class="fle">{{item.entity_content}}</text>
+        </navigator>
+      </view>
+    </view>
+  </block>
+</template>
+<!-- 我的评论 -->
+<template name="commentList">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="follow-up">
+      <text class="content">{{item.content}}</text>
+      <view class="nature-line">
+        <text class="time">{{item.format_time}}</text>
+        <view class="source" wx:if="{{item.comment_id}}">回复<navigator class="someone" hover-class="none" url="../userPage/userPage?userid={{item.comment_user_id}}">@{{item.comment_user_name}}</navigator>的评论</view>
+        <view class="source" wx:else>评论了帖子</view>
+        <view class="operate" data-id="{{item.id}}" data-index="{{index}}" data-cid="{{item.comment_id?item.comment_id:item.entity_id}}" bindtap="deleteComment"></view>
+      </view>
+      <navigator class="kamiya flex Comment" hover-class="none" url="../postDetails/postDetails?id={{item.entity_id}}">
+          <image class="caseImg" wx:if="{{!item.comment_id&&item.entity_cover_url}}" src="{{item.entity_cover_url}}"></image>
+          <view class="wordsTitle fle" wx:if="{{!item.comment_id}}">{{item.entity_content?item.entity_content:'原贴已被删除！'}}</view>
+          <text wx:if="{{item.comment_id}}">{{item.comment_user_name}}：</text>
+          <text class="fle ellipsis" wx:if="{{item.comment_id}}">{{item.comment_content}}</text>
+      </navigator>
+    </view>
+  </block>
+</template>
+<!-- 登陆弹框 -->
+<template name="loginLayer">
+  <view class="loginContainer" wx:if="{{isLoginShow}}">
+    <view class="loginmask"></view>
+    <view class="loginwrap">
+      <view class="close" bindtap="loginClose"></view>
+      <view class="loginTxt">请先登录</view>
+      <view class="loginTxt">然后一起来互动吧~</view>
+     <button class="loginbtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class="none">登录</button>
+    </view>
+  </view>
+</template>
+<!-- 我的-空状态 -->
+<template name="dummyStatus">
+  <view class="dummy-status">
+    <image class="icon" src="http://mued3.jia.com/image/mobile/app_toutiao/info-null.png"></image>
+    <text>{{statusTxt}}</text>
+  </view>
+</template>
+<!-- 帖子搜索结果 -->
+<template name="resultItems">
+  <block wx:for="{{datas}}" wx:for-item="item" wx:key="">
+    <view class="circleInfo">
+      <view class="circle-logo">
+        <navigator url="../userPage/userPage?userid={{item.user_id}}" class="circle-homepage flex" hover-class="none">
+          <view class="userMsg">
+            <image class="circle-tx" src="{{item.face_image_url||'https://imgmall.tg.com.cn/group2/M00/37/73/CgooeVjrQzSCkzTRAAAKsyCa_Fg230.png'}}"></image>
+            <text class="circle-name">{{item.user_name}}</text>
+          </view>
+          <text class="circle-time">{{item.time_since}}</text>
+        </navigator>
+      </view>
+      <view class="circle-detail {{item.video?'video':''}}">
+        <navigator url="../postDetails/postDetails?id={{item.id}}" class="circle-a" hover-class="none">
+          <view class="circle-wrap">
+            <text class="stick" wx:if="{{item.is_top==1}}">置顶</text>
+            <text class="stick" wx:if="{{item.is_recommend==1}}">精华</text>
+            <text class="stick" wx:if="{{item.is_activity==1}}">活动</text>
+            <text class="stick" wx:if="{{item.video}}">视频</text>
+            <text class="title">{{item.title}}</text>
+          </view>
+          <view class="topic-img-ul clearfix" wx:if="{{item.content_arr!=''}}">
+            <block wx:for="{{item.content_arr}}" wx:for-item="image" wx:key="" wx:for-index="index">
+              <view class="topic-img-li image-box" wx:if="{{image.type==2 && index<3}}">
+                <image src="{{image.url}}" mode="aspectFill"></image>
+              </view>
+            </block>
+          </view>
+          <view class="topic-img-ul clearfix" wx:if="{{item.video}}">
+            <view class="topic-img-li image-box">
+              <image src="{{item.video.video_preview_url}}" mode="aspectFill"></image>
+              <view class="video-btn"></view>
+            </view>
+          </view>
+        </navigator>
+        <view class="topic-info-wrap clearfix">
+          <view class="from-tag">
+            <text class="icon">来自</text>
+            <navigator url="../PostType/PostType?id={{item.community_master_id}}" hover-class="none" class="from-tag-a">{{item.note_title}}</navigator>
+          </view>
+          <view class="watch-num">
+            <text class="icon">浏览</text>
+            <text>{{item.browse_count}}</text>
+          </view>
+          <view class="pinglin-num">
+            <text class="icon">评论</text>
+            <text>{{item.comment_count}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>
+<!-- 打开APP -->
+<template name="open-app">
+    <button
+        class='open-app {{datas.isIphoneX ? "iphoneX" : ""}}'
+        open-type='launchApp'
+        app-parameter='{{datas.parameter}}'>打开APP</button>
+</template>
